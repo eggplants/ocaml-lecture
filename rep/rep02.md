@@ -133,7 +133,7 @@
 となる. しかし:
 
 ```math
-$\tau_2 = \tau_2\rightarrow \tau_2
+\tau_2 = \tau_2\rightarrow \tau_2
 ```
 
 となるような解は存在しないので解なし.
