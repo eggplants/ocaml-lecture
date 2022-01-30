@@ -25,24 +25,27 @@
 
 ### M1=λf.λx.f(x + 1)
 
-$$
+```math
 \dfrac{\dfrac{}{f:\tau_2, x:\tau_4\vdash f:\tau_6}\dfrac{\dfrac{}{f:\tau_2, x:\tau_4\vdash x:Int}\dfrac{}{f:\tau_2, x:\tau_4\vdash 1:Int}}{f:\tau_2, x:\tau_4\vdash x+1:\tau_7}}{\dfrac{\dfrac{f:\tau_2, x: \tau_4 \vdash f(x+1): \tau_5}{f:\tau_2, \vdash \lambda x.f(x+1): \tau_3}}{\vdash \lambda f.\lambda x. f(x+1): \tau_1}}
-$$
+```
 
 上の証明図より, 等式の集合は:
 
-$$\begin{aligned}
+```math
+\begin{aligned}
 \tau_1&=\tau_2 \rightarrow \tau_3 \\
 \tau_3&=\tau_4 \rightarrow \tau_5 \\
 \tau_6&=\tau_7 \rightarrow \tau_5 \\
 \tau_6&=\tau_2 \\
 \tau_4&=I \\
 \tau_7&=I
-\end{aligned}$$
+\end{aligned}
+```
 
 となり, 単一化を行うと, それぞれの型変数の解は:
 
-$$\begin{aligned}
+```math
+\begin{aligned}
 \tau_1&:= (I\rightarrow I)\rightarrow I \rightarrow I \\
 \tau_2&:= I \rightarrow I\\
 \tau_3&:= I \rightarrow I\\
@@ -50,25 +53,27 @@ $$\begin{aligned}
 \tau_5&:= I\\
 \tau_6&:= I \rightarrow I\\
 \tau_7&:= I
-\end{aligned}$$
+\end{aligned}
+```
 
 となる. よって:
 
-$$
+```math
 \vdash λf.λx.f(x + 1): (I\rightarrow I)\rightarrow I \rightarrow I
-$$
+```
 
 が導けた.
 
 ### M2=λf.λx.f(f (x + 1))
 
-$$
+```math
 \dfrac{\dfrac{}{f:\tau_3, x: \tau_4 \vdash f: \tau_6}\dfrac{\dfrac{}{f:\tau_3, x: \tau_4 \vdash f:\tau_8}\dfrac{\dfrac{}{f:\tau_3, x: \tau_4 \vdash x: Int}\dfrac{}{f:\tau_3, x: \tau_4 \vdash 1:Int}}{f:\tau_3, x: \tau_4 \vdash x+1: \tau_9}}{f:\tau_3, x: \tau_4 \vdash f(x +1): \tau_7}}{\dfrac{\dfrac{f:\tau_2, x: \tau_4 \vdash f(f(x+1)): \tau_5}{f:\tau_2, \vdash \lambda x.f(f(x+1)): \tau_3}}{\vdash \lambda f.\lambda x. f(f(x+1)): \tau_1}}
-$$
+```
 
 上の証明図より, 等式の集合は:
 
-$$\begin{aligned}
+```math
+\begin{aligned}
 \tau_1&=\tau_2 \rightarrow \tau_3 \\
 \tau_3&=\tau_4 \rightarrow \tau_5 \\
 \tau_6&=\tau_7 \rightarrow \tau_5 \\
@@ -77,11 +82,13 @@ $$\begin{aligned}
 \tau_3&=\tau_8 \\
 \tau_4&=I \\
 \tau_9&=I
-\end{aligned}$$
+\end{aligned}
+```
 
 となり, 単一化を行うと, それぞれの型変数の解は:
 
-$$\begin{aligned}
+```math
+\begin{aligned}
 \tau_1&:= (I\rightarrow I)\rightarrow I \rightarrow I \\
 \tau_2&:= I \rightarrow I\\
 \tau_3&:= I \rightarrow I \\
@@ -91,25 +98,27 @@ $$\begin{aligned}
 \tau_7&:= I \\
 \tau_8&:= I \\
 \tau_9&:= I
-\end{aligned}$$
+\end{aligned}
+```
 
 となる. よって:
 
-$$
-\vdash λf.λx.f(f(x + 1)): (Int \rightarrow Int )\rightarrow Int  \rightarrow Int 
-$$
+```math
+\vdash λf.λx.f(f(x + 1)): (Int \rightarrow Int )\rightarrow Int  \rightarrow Int
+```
 
 が導けた.
 
 ### M3=λf.λx.(f f)(x + 1)
 
-$$
+```math
 \dfrac{\dfrac{\dfrac{}{f:\tau_2, x: \tau_4 \vdash f: \tau_8}\dfrac{}{f:\tau_2, x: \tau_4 \vdash f: \tau_9}}{f:\tau_2, x: \tau_4 \vdash (f~f): \tau_6}\dfrac{\dfrac{}{f:\tau_2, x: \tau_4 \vdash x: Int}\dfrac{}{f:\tau_2, x: \tau_4 \vdash 1:Int}}{f:\tau_2, x: \tau_4 \vdash x+1: \tau_7}}{\dfrac{\dfrac{f:\tau_2, x: \tau_4 \vdash (f~f)(x+1): \tau_5}{f:\tau_2, \vdash \lambda x.(f~f)(x+1): \tau_3}}{\vdash \lambda f.\lambda x. (f~f)(x+1): \tau_1}}
-$$
+```
 
 上の証明図より, 等式の集合は:
 
-$$\begin{aligned}
+```math
+\begin{aligned}
 \tau_1&=\tau_2 \rightarrow \tau_3 \\
 \tau_3&=\tau_4 \rightarrow \tau_5 \\
 \tau_6&=\tau_7 \rightarrow \tau_5 \\
@@ -118,9 +127,16 @@ $$\begin{aligned}
 \tau_2&=\tau_9 \\
 \tau_4&=I \\
 \tau_7&=I
-\end{aligned}$$
+\end{aligned}
+```
 
-となる. しかし$\tau_2 = \tau_2\rightarrow \tau_2$となるような解は存在しないので解なし.
+となる. しかし:
+
+```math
+$\tau_2 = \tau_2\rightarrow \tau_2
+```
+
+となるような解は存在しないので解なし.
 
 ## 1日目後半: 静的/動的型付けが有利か不利か、3つ以上の観点で「あなたの意見を」述べなさい
 
